@@ -22,6 +22,7 @@ class TodoUpdateView(UpdateView):
     fields = ('description', 'due_date', 'is_completed')
     template_name = 'todos/todo_update.html'
     success_url = reverse_lazy('todo_list')
+    context_object_name = 'todos'
 
 
 class TodoDeleteView(DeleteView):

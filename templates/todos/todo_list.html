@@ -2,4 +2,17 @@
 
 {% block content %}
   <p>Todos (<a href="{% url 'todo_new' %}">add new one</a>)</p>
+
+  <ul>
+    {% for todo in todos %}
+      <li>
+        {{ todo.description }} | {{ todo.due_date }}
+        <a href="{% url 'todo_update' todo.pk %}">edit</a>
+        <form action="{% url 'todo_delete' todo.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit">delete</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock %}
