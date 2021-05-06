@@ -9,6 +9,12 @@ class TodoListView(ListView):
     model = Todo
     context_object_name = 'todos'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['todo_form'] = TodoCreateForm
+
+        return context
+
 
 class TodoCreateView(CreateView):
     model = Todo

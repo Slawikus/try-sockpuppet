@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <p>Todos (<a href="{% url 'todo_new' %}">add new one</a>)</p>
+  <p>Todos</p>
+
+  <p>Add new todo:</p>
+  <form method="post" action="{% url "todo_new" %}">
+    {% csrf_token %}
+    {{ todo_form }}
+    <button type="submit" class="btn btn-primary">
+      Save
+    </button>
+  </form>
 
   <ul>
     {% for todo in todos %}
