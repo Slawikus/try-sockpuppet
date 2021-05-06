@@ -6,4 +6,5 @@ urlpatterns = [
     path('new/', views.TodoCreateView.as_view(), name='todo_new'),
     path('<int:pk>/edit/', views.TodoUpdateView.as_view(), name='todo_update'),
     path('<int:pk>/delete/', views.TodoDeleteView.as_view(), name='todo_delete'),
+    path('testreflex/', views.TestreflexView.as_view(), name='testreflex_view'),
 ]
