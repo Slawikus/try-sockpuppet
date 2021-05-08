@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <p>Todos</p>
+  <p>Todos ({{ count }})</p>
+
+  <a  href="#"
+      data-controller="todos"
+      data-action="click->todos#addTodo"
+  >Add reflex todo {{ count }}</a>
 
   <p>Add new todo:</p>
   <form method="post" action="{% url "todo_new" %}">

@@ -12,6 +12,7 @@ class TodoListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(object_list=object_list, **kwargs)
         context['todo_form'] = TodoCreateForm
+        context['count'] = Todo.objects.count()
 
         return context
 
