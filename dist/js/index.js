@@ -6209,7 +6209,23 @@ class WebsocketConsumer {
   }
 });
 
+;// CONCATENATED MODULE: ./javascript/src/javascript/controllers/todos_controller.js
+
+
+
+/* harmony default export */ const todos_controller = (class extends Controller {
+  connect() {
+    stimulus_reflex.register(this)
+  }
+
+  addTodo(event) {
+    event.preventDefault()
+    this.stimulate('TodoReflex#add_todo', 1)
+  }
+});
+
 ;// CONCATENATED MODULE: ./javascript/src/javascript/index.js
+
 
 
 
@@ -6220,6 +6236,8 @@ const application = Application.start()
 const consumer = new WebsocketConsumer('ws://localhost:8000/ws/sockpuppet-sync')
 
 application.register('counter', counter_controller)
+application.register('todos', todos_controller)
+
 stimulus_reflex.initialize(application, { consumer })
 
 })();
